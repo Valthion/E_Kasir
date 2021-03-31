@@ -1,2 +1,1 @@
-# AppKasir
-> Android Studio version
+
