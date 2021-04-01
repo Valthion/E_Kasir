@@ -12,6 +12,8 @@ import android.support.v4.app.FragmentManager;
 import com.ftiuksw.ekasir.Fragment.*;
 import com.ftiuksw.ekasir.Model.Produk;
 import com.ftiuksw.ekasir.Adapter.*;
+import com.ftiuksw.ekasir.Widget.EditorDialog;
+
 import kr.co.namee.permissiongen.*;
 import android.*;
 import android.support.v7.app.AlertDialog;
@@ -95,8 +97,10 @@ public class MainActivity extends AppCompatActivity
 			case android.R.id.home:
 				mDrawer.openDrawer(GravityCompat.START);
 				return true;
-			
-				
+			case R.id.menu_help:
+				Intent intent = new Intent(this, tentangActivity.class);
+				startActivity(intent);
+				break;
 		}
 		return super.onOptionsItemSelected(item);
 	}
