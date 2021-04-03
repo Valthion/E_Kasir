@@ -32,7 +32,6 @@ public class BelanjaanDataAdapter extends TableDataAdapter
 		}
 		return render;
 	}
-	// Fungsi get Belanjaan melalui SN
 	public Belanjaan getBelBySN(String sn){
 		Belanjaan pp = null;
 		for(Object bb:getData()){
@@ -54,26 +53,20 @@ public class BelanjaanDataAdapter extends TableDataAdapter
 	}
 	public void tambah(Produk prod, int quantity){
 		Belanjaan bel=getBelBySN(prod.getSn());
-		// jika produk sudah ada dalam keranjang
-		// maka tambahkan quantity
 		if(bel!=null){
 			int prodquantity=bel.getQuantity()+1;
 			if(quantity!=-1) prodquantity=quantity;
 			getData().set(getData().indexOf(bel), new Belanjaan(prod, prodquantity));
 		}else{
-			// jika tidak ada dalam keranjang
-			// maka masukan ke keranjang
 			if(quantity==-1) quantity=1;
 			getData().add(new Belanjaan(prod, quantity));
 		}
-		// update total belanja
 		updateTotal();
 		notifyDataSetChanged();
 	}
 	public void hapus(Produk prod){
 		Belanjaan bel=getBelBySN(prod.getSn());
 		getData().remove(getData().indexOf(bel));
-		// update total belanja
 		updateTotal();
 		notifyDataSetChanged();
 	}

@@ -30,9 +30,6 @@ public class inputProdukScanner {
 		barcodeView.setStatusText("Arahkan ke barcode");
 		ArrayList<BarcodeFormat> formatList = new ArrayList<BarcodeFormat>();
 		formatList.add(BarcodeFormat.EAN_13);
-		//barcodeView.getBarcodeView().setDecoderFactory(new DefaultDecoderFactory(formatList, null, null));
-		//new DecoderFactory();
-		// Toggle flashlight saat viewfinder barcode disentuh
 		barcodeView.setOnClickListener(new View.OnClickListener(){
 				@Override
 				public void onClick(View p1) {
@@ -70,12 +67,8 @@ public class inputProdukScanner {
 					barcodeView.pause();
 				}
 			});
-		// ini hanya buat nampilin tombol "Tambahkan" pada dialog
-		// onclick sengaja ga di isi
-		// Meng-override onClick (lihat okBtn) agar saat di klik dialog kaga ngilang
 		dlg.setPositiveButton("Tambahkan", null);
 		AlertDialog dialog=dlg.show();
-		// tombol positive (Tambahkan)
 		final Button okBtn=dialog.getButton(AlertDialog.BUTTON1);
 		okBtn.setEnabled(false);
 		tanpakonf.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
@@ -85,12 +78,10 @@ public class inputProdukScanner {
 					else okBtn.setEnabled(true);
 				}
 			});
-		// Override onClick positiveButton pada dialog, 
 		okBtn.setOnClickListener(new View.OnClickListener(){
 				@Override
 				public void onClick(View p1) {
 					MainActivity.dataBalanjaan.tambah(produk_terindentifikasi, -1);
-					// Update totalJumalah di BottomSheet
 					belanjaFragment.totaljum.setText("Rp. " + BelanjaanDataAdapter.PRICE_FORMATTER.format(BelanjaanDataAdapter.total));
 				}
 			});
@@ -99,23 +90,16 @@ public class inputProdukScanner {
 				@Override
 				public void barcodeResult(BarcodeResult result) {
 					produk_terindentifikasi = Produk.getBySN(ctx, result.getText());
-					// Jika produk kedaftar di Database produk
-					// Kalo ngga ya diem
 					if (produk_terindentifikasi != null) {
 						namaproduk.setText(produk_terindentifikasi.getNama());
 						hargaproduk.setText("Rp. " + BelanjaanDataAdapter.PRICE_FORMATTER.format(produk_terindentifikasi.getHarga()));
 						snProduk.setText(result.getText());
 						namaproduk.setVisibility(View.VISIBLE);
 						hargaproduk.setVisibility(View.VISIBLE);
-						// Jika mode otomatis (tanpa konfirm) di cek
 						if (tanpakonf.isChecked()) {
 							okBtn.setEnabled(false);
 							MainActivity.dataBalanjaan.tambah(produk_terindentifikasi, -1);
-							// Update totalJumalah di BottomSheet
 							belanjaFragment.totaljum.setText("Rp. " + BelanjaanDataAdapter.PRICE_FORMATTER.format(BelanjaanDataAdapter.total));
-							// Pause dulu kamera jika sudah berhasil mengidentifikasi produk
-							// setelah 2dtk baru di resume
-							// ini utk menghindari scan beruntun, dlm waktu 2dtk jauhkan barcode dari kamera atau aplikasi akan mengupdate status Quantity-nya
 							barcodeView.pause();
 							Handler handler = new Handler();
 							handler.postDelayed(new Runnable() {

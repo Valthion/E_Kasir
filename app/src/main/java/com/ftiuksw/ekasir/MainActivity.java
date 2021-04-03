@@ -108,7 +108,6 @@ public class MainActivity extends AppCompatActivity
 	@Override
 	protected void onPostCreate(Bundle savedInstanceState) {
 		super.onPostCreate(savedInstanceState);
-		// Sync the toggle state after onRestoreInstanceState has occurred.
 		drawerToggle.syncState();
 	}
 
@@ -124,7 +123,8 @@ public class MainActivity extends AppCompatActivity
 	}
 	@PermissionSuccess(requestCode = 100)
 	public void doSomething(){
-		// Lakukan sesuatu disini
+		AlertDialog.Builder dlg=new AlertDialog.Builder(this);
+		dlg.setMessage("Perijinan Sukses");
 	}
 	@PermissionFail(requestCode = 100)
 	public void doFailSomething(){

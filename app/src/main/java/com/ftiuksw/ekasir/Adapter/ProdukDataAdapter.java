@@ -15,6 +15,7 @@ public class ProdukDataAdapter extends TableDataAdapter
 		super(ctx, prod);
 	}
 	@Override
+
 	public View getCellView(int row, int column, ViewGroup p3) {
 		Produk produk = (Produk) getRowData(row);
 		View render=null;
@@ -53,7 +54,7 @@ public class ProdukDataAdapter extends TableDataAdapter
 		notifyDataSetChanged();
 	}
 	public void perbarui(Produk produk, ContentValues newdata){
-		int idx=getpos(produk);//getData().indexOf(produk);
+		int idx=getpos(produk);
 		if(idx>=0){
 			
 		}else{

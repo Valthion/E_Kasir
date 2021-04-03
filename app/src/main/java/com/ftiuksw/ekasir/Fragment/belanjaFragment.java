@@ -49,15 +49,12 @@ public class belanjaFragment extends Fragment
 	private class DtaClickListener implements TableDataClickListener<Belanjaan> {
 		@Override
 		public void onDataClicked(int p1, Belanjaan belanjaan) {
-			
-			//new inputProdukScanner(getActivity()).shoping();
 			new EditorDialog(getActivity(), belanjaan, totaljum);
 		}
     }
 	private class DataLongClickListener implements TableDataLongClickListener<Belanjaan> {
         @Override
         public boolean onDataLongClicked(int rowIndex, Belanjaan belanjaan) {
-            //showdlg(belanjaan.getProduk().getNama(), belanjaan.getProduk().getHarga(), belanjaan.getQuantity());
 			return true;
         }
     }

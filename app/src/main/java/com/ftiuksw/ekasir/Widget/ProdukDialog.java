@@ -39,10 +39,8 @@ public class ProdukDialog
 					data.put("sn", kodeprod.getText().toString());
 					data.put("harga", Long.parseLong(harga.getText().toString()));
 					data.put("stok", Integer.parseInt(stok.getText().toString()));
-					// Jika mode penambahan
 					if(dataset==null){
 						MainActivity.dataproduk.tambah(data);
-					// Jika mode EDIT
 					}else{
 						MainActivity.dataproduk.perbarui(dataset, data);
 					}
@@ -51,7 +49,6 @@ public class ProdukDialog
 		dlg.setNegativeButton("Batal", null);
 		final AlertDialog dialog=dlg.create();
 		dialog.show();
-		// Override tombol Hapus
 		Button hapusBtn=dialog.getButton(AlertDialog.BUTTON3);
 		hapusBtn.setOnClickListener(new View.OnClickListener(){
 				@Override
@@ -68,8 +65,6 @@ public class ProdukDialog
 					return false;
 				}
 			});
-		// Dibawah ini adalah fungsi agar Button OK di disable jika data belum terisi atau jumlahnya kurang dari kriteria yang ditentukan
-		// Gunakan textWatcher disetiap kolom
 		final Button btn= dialog.getButton(AlertDialog.BUTTON1);
 		if(dataset==null) btn.setEnabled(false);
 		TextWatcher watcher=new TextWatcher(){

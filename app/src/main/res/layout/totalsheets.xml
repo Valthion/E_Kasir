@@ -37,16 +37,5 @@
 
 	</LinearLayout>
 
-	<TextView
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_below="@id/caps"
-		android:layout_centerHorizontal="true"
-		android:text="Hello World!"
-		android:textAppearance="@android:style/TextAppearance.Large"
-		android:layout_marginTop="100dp"
-		android:textColor="#FFFFFF"
-		android:id="@+id/totalsheetsTextView1"/>
-
 </RelativeLayout>
 

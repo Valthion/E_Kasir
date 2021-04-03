@@ -33,8 +33,6 @@ public class productFragment extends Fragment
 		fab_addbtn.setOnClickListener(new View.OnClickListener(){
 				@Override
 				public void onClick(View p1) {
-					//new ProdukDialog(getActivity(), null);
-					//new inputProdukScanner(getActivity()).tambahkanProduk();
 					new BottomSheet.Builder(getActivity())
 						.setSheet(R.menu.inputmodemenu)
 						.setListener(new BottomSheetListener(){
@@ -111,7 +109,6 @@ public class productFragment extends Fragment
 					}
 				})
 				.show();
-            //Toast.makeText(getActivity(), carString, Toast.LENGTH_SHORT).show();
         }
     }
 	private class DataLongClickListener implements TableDataLongClickListener<Produk> {
@@ -121,21 +118,5 @@ public class productFragment extends Fragment
 			return true;
         }
     }
-	
-	/*@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.mainmenu, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch(item.getItemId()){
-			case R.id.menu_add:
-				new ProdukDialog(MainActivity.this, null);
-				break;
-		}
-		return super.onOptionsItemSelected(item);
-	}*/
 	
 }
