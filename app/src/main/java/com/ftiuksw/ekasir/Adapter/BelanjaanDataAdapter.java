@@ -70,8 +70,9 @@ public class BelanjaanDataAdapter extends TableDataAdapter
 		updateTotal();
 		notifyDataSetChanged();
 	}
-	public void hapus(Produk produk){
-		getData().remove(produk);
+	public void hapus(Produk prod){
+		Belanjaan bel=getBelBySN(prod.getSn());
+		getData().remove(getData().indexOf(bel));
 		// update total belanja
 		updateTotal();
 		notifyDataSetChanged();
