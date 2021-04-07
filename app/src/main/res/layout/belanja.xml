@@ -7,11 +7,10 @@
 	android:id="@+id/kor">
 
 	<com.ftiuksw.ekasir.tabelBelanjaan
-		xmlns:table="http://schemas.android.com/apk/res-auto"
 		android:id="@+id/belanjaan"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
-		table:tableView_headerColor="@color/primary"/>
+		app:tableView_headerColor="#29DD30" />
 
 
 	<include layout="@layout/totalsheets"
