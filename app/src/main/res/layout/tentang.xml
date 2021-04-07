@@ -4,14 +4,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
-    <LinearLayout
+
+	<LinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
 		android:orientation="vertical">
+
 		<include
 			layout="@layout/toolbar"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content" />
+
+		<ImageView
+			android:id="@+id/imageView3"
+			android:layout_width="wrap_content"
+			android:layout_height="267dp"
+			app:srcCompat="@drawable/whatsapp_image_2021_04_03_at_21_53_15" />
+
 		<FrameLayout
 			android:id="@+id/konten"
 			android:layout_width="match_parent"
@@ -22,7 +31,7 @@
 				android:layout_width="match_parent"
 				android:layout_height="match_parent"
 				android:gravity="center"
-				android:text="E-Kasir\n'Solusi Mudah Untuk Atur Keuangan'\n\n\n\nAPP V1.0\nDeveloped By: _______"
+				android:text="E-Kasir\n'Solusi Mudah Untuk Atur Keuangan'\n\n\n\nAPP V1.0\nDeveloped By: GabutCode"
 				android:textSize="18sp"
 				app:layout_constraintBottom_toBottomOf="parent"
 				app:layout_constraintEnd_toEndOf="parent"
