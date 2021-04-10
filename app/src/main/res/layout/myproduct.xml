@@ -10,7 +10,7 @@
 		android:id="@+id/tableView"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
-		app:tableView_headerColor="#2BDA32" />
+		app:tableView_headerColor="#36AC3A" />
 
 	<android.support.design.widget.FloatingActionButton
 		android:id="@+id/fab_addproduct"

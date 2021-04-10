@@ -10,7 +10,7 @@
 		android:id="@+id/belanjaan"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
-		app:tableView_headerColor="#29DD30" />
+		app:tableView_headerColor="#36AC3A" />
 
 
 	<include layout="@layout/totalsheets"
